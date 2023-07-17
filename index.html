@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+      
+      body {
+        background-color: #f9f9f9;
+        color: #333;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+      
+      .tile {
+        width: 300px;
+        height: 200px;
+        background-color: #ffcc00;
+        border: 1px solid #999;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+      
+      .tile:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .title {
+        font-weight: bold;
+        margin-top: 10px;
+        color: #333;
+      }
+      
+      table {
+        margin-top: 10px;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      td {
+        padding: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+        background-color: #fff;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: #ffcc00;">Central system</h1>
+    <p style="color: #333;">Sheets into the central system</p>
+    <? var sheetsData = getSheetsData(); ?>
+    <? for (var i = 0; i < sheetsData.length; i++) { ?>
+      <div class="tile">
+        <div class="title"><?= sheetsData[i].title ?></div>
+        <table>
+          <? var values = sheetsData[i].values; ?>
+          <? for (var j = 0; j < values.length; j++) { ?>
+            <tr>
+              <? for (var k = 0; k < values[j].length; k++) { ?>
+                <td><?= values[j][k] ?></td>
+              <? } ?>
+            </tr>
+          <? } ?>
+        </table>
+      </div>
+    <? } ?>
+  </body>
+</html>
